@@ -9,24 +9,24 @@ function HomePage(props) {
   }, []);
   return (
     <div>
-      {/* <div>Rendering from {props.from}</div> */}
-      {/* <div>Next stars: {props.stars}</div> */}
-      <div>Next stars: {props.star}</div>
+      <div>Rendering from {props.from}</div>
+      <div>Next stars: {props.stars}</div>
+      {/* <div>Next stars: {props.star}</div> */}
     </div>
   );
 }
-// HomePage.getInitialProps = async ctx => {
-//   console.log("HomePage.getInitialProps");
-//   let obj = { from: "server" };
-//   console.log("ctx.pathname :", ctx.pathname);
-//   if (!ctx.req) {
-//     console.log("client side executed");
-//     obj.from = "client";
-//   }
-//   const res = await fetch("https://api.github.com/repos/zeit/next.js");
-//   const json = await res.json();
-//   return { stars: json.stargazers_count, ...obj };
-// };
+HomePage.getInitialProps = async ctx => {
+  console.log("HomePage.getInitialProps");
+  let obj = { from: "server" };
+  console.log("ctx.pathname :", ctx.pathname);
+  if (!ctx.req) {
+    console.log("client side executed");
+    obj.from = "client";
+  }
+  const res = await fetch("https://api.github.com/repos/zeit/next.js");
+  const json = await res.json();
+  return { stars: json.stargazers_count, ...obj };
+};
 
 export default HomePage;
 

@@ -14,6 +14,10 @@ const Home = () => (
     <Link href="/homepage">
       <a>LinkTag</a>
     </Link>
+    <div></div>
+    <Link href="/about">
+      <a>About</a>
+    </Link>
   </div>
 );
 

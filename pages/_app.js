@@ -19,17 +19,20 @@ MyApp.getInitialProps = async appContext => {
   // console.log("Component : ", Component);
   let pageProps = {};
   if (Component.getInitialProps) {
-    console.log("If Component", Component);
+    console.log("If Component");
     pageProps = await Component.getInitialProps(ctx);
+  } else {
+    const res = await fetch("https://api.github.com/repos/zeit/next.js");
+    const json = await res.json();
+    // pageProps.star = "pageProps from My App";
+    pageProps.star = json.stargazers_count;
   }
   // return { pageProps };
   // console.log("appContext.Component :", appContext.Component);
   // console.log("appContext.router :", appContext.router);
   // console.log("appContext.ctx :", appContext.ctx);
 
-  const res = await fetch("https://api.github.com/repos/zeit/next.js");
-  const json = await res.json();
-  pageProps = { star: json.stargazers_count };
+  // pageProps = { star: json.stargazers_count };
   return { pageProps };
 };
 // console.log("_app.js json.stargazers_count :", json.stargazers_count);
