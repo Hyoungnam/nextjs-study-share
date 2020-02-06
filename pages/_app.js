@@ -24,7 +24,7 @@ MyApp.getInitialProps = async appContext => {
   } else {
     const res = await fetch("https://api.github.com/repos/zeit/next.js");
     const json = await res.json();
-    // pageProps.star = "pageProps from My App";
+    pageProps.title = "pageProps from My App";
     pageProps.star = json.stargazers_count;
   }
   // return { pageProps };

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 function HomePage(props) {
   // console.log("stars in Hompage Component", props.stars);
-  console.log("_app js pageProps:", props.star);
+  // console.log("_app js pageProps:", props.star);
   useEffect(() => {
     console.log("ComponentDidMount");
   }, []);
